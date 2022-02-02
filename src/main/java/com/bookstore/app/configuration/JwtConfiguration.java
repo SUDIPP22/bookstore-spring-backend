@@ -37,7 +37,8 @@ public class JwtConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/token", "/signup", "/forget-password/{emailId}", "/reset-password", "/id/{token}", "/order/listoforders/{userId}", "/order/placeorder/{userId}").permitAll()
+                .antMatchers("/token", "/signup", "/forget-password/{emailId}", "/reset-password", "/id/{token}",
+                        "/order/listoforders/{userId}", "/order/placeorder/{userId}").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login")
