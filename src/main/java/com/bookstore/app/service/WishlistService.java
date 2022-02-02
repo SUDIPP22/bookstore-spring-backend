@@ -29,7 +29,9 @@ public class WishlistService {
 		UserEntity user = userRepo.getById(userId);
 		Wishlist wishlist = wishlistRepository.findByUserAndBook(user, book);
 		if(wishlist==null && book !=null && user!=null) {
-			wishlist= new Wishlist(user, book);
+			wishlist= new Wishlist();
+			wishlist.setBook(book);
+			wishlist.setUser(user);
 			wishlistRepository.save(wishlist);
 		}
 		else {
